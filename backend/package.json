@@ -3,5 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.11.8",
+    "nodemon": "^2.0.6"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@controllers": "./controllers",
+    "@models" : "./models",
+    "@routes" : "./routes"
+  }
 }
