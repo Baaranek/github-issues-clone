@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const issueSchema = mongoose.Schema({
-  title: {},
-  author: {},
-  description: {},
+  title: { type: String, required: true },
+  author: { type: String, required: true },
+  description: { type: String, required: true },
   tags: [String],
   comments: [
     {
