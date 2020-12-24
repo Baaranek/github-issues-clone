@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // import Routes
 const issuesRoutes = require('./routes/issues.routes');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // Add routes as middleware
