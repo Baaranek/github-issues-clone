@@ -4,6 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "run-all": "concurrently \"npm run run-server\" \"npm run run-client\"",
+    "run-server": "cd backend && nodemon index.js",
+    "run-client": "cd client && npm start"
+  },
   "dependencies": {
     "concurrently": "^5.3.0",
     "husky": "^4.3.6",
