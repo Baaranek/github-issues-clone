@@ -6,10 +6,10 @@ import { fetchIssueByIdFromApi } from '../../../redux/currentIssueRedux';
 const IssueDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.currentIssue.data);
+  const data = useSelector((state) => state.currentIssue);
 
-  useEffect(async () => {
-    await dispatch(fetchIssueByIdFromApi(id));
+  useEffect(() => {
+    dispatch(fetchIssueByIdFromApi(id));
   }, []);
 
   return <div>{data && <p>{data.description}</p>}</div>;

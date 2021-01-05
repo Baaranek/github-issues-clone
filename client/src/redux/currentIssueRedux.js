@@ -18,9 +18,10 @@ export const fetchIssueByIdFromApi = (id) => {
 
 /* REDUCER */
 export default function reducer(state = [], action = {}) {
+  const data = action.payload;
   switch (action.type) {
     case LOAD_CURRENT_ISSUE:
-      return { ...state, data: action.payload };
+      return { ...state, ...data };
     default:
       return state;
   }

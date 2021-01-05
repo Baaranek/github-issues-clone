@@ -22,6 +22,9 @@ const IssuesList = () => {
       ) : (
         <span>No Issues Found!</span>
       )}
+      <div>
+        <Link to="/issue/new">New Issue</Link>
+      </div>
     </div>
   );
 };
