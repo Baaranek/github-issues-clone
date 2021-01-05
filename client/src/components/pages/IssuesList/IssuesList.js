@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchIssuesFromApi } from '../../../redux/issuesRedux';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const IssuesList = () => {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ const IssuesList = () => {
     <div>
       {issues ? (
         issues.map(({ _id, title }) => (
-          <Link to={`/issue/${_id}`} key={_id}>
+          <StyledLink to={`/issue/${_id}`} key={_id}>
             {title}
-          </Link>
+          </StyledLink>
         ))
       ) : (
         <span>No Issues Found!</span>
@@ -28,5 +29,9 @@ const IssuesList = () => {
     </div>
   );
 };
+
+const StyledLink = styled(Link)`
+  display: block;
+`;
 
 export default IssuesList;
