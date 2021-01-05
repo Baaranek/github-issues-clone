@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-/* SELECTORS */
-
 /* ACTIONS */
 const reducerName = 'issues';
 const createActionName = (name) => `app/${reducerName}/${name}`;
@@ -18,22 +16,13 @@ export const fetchIssuesFromApi = () => {
   };
 };
 
-export const fetchIssueByIdFromApi = (id) => {
-  return async (dispatch) => {
-    let res = await axios.get(`http://localhost:8000/api/issues/${id}`);
-    dispatch(loadIssues(res.data));
-  };
-};
-
-/* INITIAL STATE */
-
 /* REDUCER */
 
-export default function reducer(statePart = [], action = {}) {
+export default function reducer(state = [], action = {}) {
   switch (action.type) {
     case LOAD_ISSUES:
-      return { ...statePart, data: action.payload };
+      return { ...state, data: action.payload };
     default:
-      return statePart;
+      return state;
   }
 }
