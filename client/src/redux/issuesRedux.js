@@ -18,6 +18,13 @@ export const fetchIssuesFromApi = () => {
   };
 };
 
+export const fetchIssueByIdFromApi = (id) => {
+  return async (dispatch) => {
+    let res = await axios.get(`http://localhost:8000/api/issues/${id}`);
+    dispatch(loadIssues(res.data));
+  };
+};
+
 /* INITIAL STATE */
 
 /* REDUCER */
