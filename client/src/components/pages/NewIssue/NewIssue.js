@@ -21,6 +21,7 @@ const NewIssue = () => {
             type="text"
             placeholder="title"
             name="title"
+            autoComplete="off"
             ref={register({
               required: true,
             })}
@@ -29,6 +30,7 @@ const NewIssue = () => {
             type="text"
             placeholder="author"
             name="author"
+            autoComplete="off"
             ref={register({
               required: true,
             })}
@@ -37,6 +39,7 @@ const NewIssue = () => {
             type="text"
             placeholder="tag"
             name="tags"
+            autoComplete="off"
             ref={register({
               required: false,
             })}
@@ -45,6 +48,7 @@ const NewIssue = () => {
             type="text"
             placeholder="description"
             name="description"
+            autoComplete="off"
             ref={register({
               required: true,
             })}

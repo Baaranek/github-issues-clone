@@ -9,6 +9,7 @@ const issueSchema = mongoose.Schema({
     {
       description: String,
       author: String,
+      date: { type: Date, default: Date.now },
     },
   ],
   date: { type: Date, default: Date.now },
