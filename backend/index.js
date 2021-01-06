@@ -14,10 +14,13 @@ app.use(express.json());
 app.use('/api', issuesRoutes);
 
 // Mongoose
-mongoose.connect('mongodb://localhost:27017/github', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  'mongodb+srv://admin:admin@issues.jzwv2.mongodb.net/github?retryWrites=true&w=majority',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const db = mongoose.connection;
 

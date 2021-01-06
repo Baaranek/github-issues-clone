@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_URL } from '../config';
 
 /* ACTIONS */
 const reducerName = 'issues';
@@ -14,14 +15,14 @@ export const addIssue = (payload) => ({ payload, type: ADD_ISSUE });
 
 export const fetchIssuesFromApi = () => {
   return async (dispatch) => {
-    let res = await axios.get('http://localhost:8000/api/issues');
+    let res = await axios.get(`${API_URL}/issues`);
     dispatch(loadIssues(res.data));
   };
 };
 
 export const addNewIssue = (data) => {
   return async (dispatch) => {
-    let res = await axios.post('http://localhost:8000/api/issues', data);
+    let res = await axios.post(`${API_URL}/issues`, data);
     dispatch(addIssue(res));
   };
 };

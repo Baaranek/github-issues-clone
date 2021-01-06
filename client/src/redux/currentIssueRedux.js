@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_URL } from '../config';
 
 /* ACTIONS */
 const reducerName = 'currentIssue';
@@ -11,7 +12,7 @@ export const loadIssue = (payload) => ({ payload, type: LOAD_CURRENT_ISSUE });
 
 export const fetchIssueByIdFromApi = (id) => {
   return async (dispatch) => {
-    let res = await axios.get(`http://localhost:8000/api/issues/${id}`);
+    let res = await axios.get(`${API_URL}/issues/${id}`);
     dispatch(loadIssue(res.data));
   };
 };
