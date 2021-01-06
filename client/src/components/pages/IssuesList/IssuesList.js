@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchIssuesFromApi } from '../../../redux/issuesRedux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import formatDate from '../../../utils/formatDate';
 
 const IssuesList = () => {
   const dispatch = useDispatch();
@@ -11,30 +12,6 @@ const IssuesList = () => {
   useEffect(() => {
     dispatch(fetchIssuesFromApi());
   }, []);
-
-  function dateFormat(date) {
-    const d = date.slice(0, -14);
-    const day = d.slice(8);
-    const month = parseInt(d.slice(5, 7));
-    const year = d.slice(0, 4);
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    const getMonth = months[month - 1];
-    const newDate = `${getMonth} ${day}, ${year}`;
-    return newDate;
-  }
 
   return (
     <div>
@@ -49,7 +26,7 @@ const IssuesList = () => {
                 ))}
               </TitleAndTagsContainer>
               <StyledSpan>
-                #{_id} opened on {dateFormat(date)} by {author}
+                #{_id} opened on {formatDate(date)} by {author}
               </StyledSpan>
             </IssueContainer>
           ))
