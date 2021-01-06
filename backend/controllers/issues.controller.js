@@ -22,7 +22,7 @@ exports.addIssue = async (req, res) => {
 
   try {
     const newIssue = new Issue({
-      title: title,
+      title,
       author,
       description,
       tags,
@@ -31,6 +31,27 @@ exports.addIssue = async (req, res) => {
     });
     await newIssue.save();
     res.json({ message: 'OK' });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+
+exports.addCommentToIssue = async (req, res) => {
+  const { description, author } = req.body;
+  const currentCommentBody = { author: author, description: description };
+
+  try {
+    await Issue.findByIdAndUpdate(
+      { _id: req.params.id },
+      { $push: { comments: currentCommentBody } },
+      function (error, success) {
+        if (error) {
+          res.status(500).json({ message: error });
+        } else {
+          res.status(200).json({ message: 'Ok' });
+        }
+      }
+    );
   } catch (error) {
     res.status(500).json({ message: error });
   }
