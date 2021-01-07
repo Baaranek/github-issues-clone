@@ -43,7 +43,7 @@ exports.addCommentToIssue = async (req, res) => {
   try {
     await Issue.findByIdAndUpdate(
       { _id: req.params.id },
-      { $push: { comments: currentCommentBody } },
+      { $addToSet: { comments: currentCommentBody } },
       function (error, success) {
         if (error) {
           res.status(500).json({ message: error });

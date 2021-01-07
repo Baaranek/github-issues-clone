@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+
   }
 
   body {
@@ -15,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
     overflow: hidden;
+    overflow-y: auto;
   }
 
   a{

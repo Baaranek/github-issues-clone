@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchIssueByIdFromApi } from '../../../redux/currentIssueRedux';
 import styled from 'styled-components';
+import AddNewComment from '../../features/AddNewComment//AddNewComment';
 
 const IssueDetail = () => {
   const { id } = useParams();
@@ -43,6 +44,8 @@ const IssueDetail = () => {
             </div>
           </CommentContainer>
         ))}
+      {/* Import Add Issue component */}
+      <AddNewComment postId={id} />
     </div>
   );
 };
