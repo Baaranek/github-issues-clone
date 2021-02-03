@@ -28,7 +28,6 @@ export const fetchIssueByIdFromApi = (id) => {
 export const addNewCommentToIssue = (id, data) => {
   return async (dispatch) => {
     const res = await axios.put(`${API_URL}/issues/${id}`, data);
-    console.log(res);
     dispatch(sendCommentToIssue(res));
   };
 };

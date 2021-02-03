@@ -11,6 +11,7 @@ exports.getAllIssues = async (req, res) => {
 exports.getIssueById = async (req, res) => {
   try {
     const dep = await Issue.findById(req.params.id);
+    console.log(x);
     dep ? res.json(dep) : res.status(500).json({ message: error });
   } catch (error) {
     res.status(500).json({ message: error });

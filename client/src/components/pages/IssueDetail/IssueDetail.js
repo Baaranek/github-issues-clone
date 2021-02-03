@@ -3,13 +3,15 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchIssueByIdFromApi } from '../../../redux/currentIssueRedux';
 import styled from 'styled-components';
-import AddNewComment from '../../features/AddNewComment//AddNewComment';
+import AddNewComment from '../../features/AddNewComment/AddNewComment';
 
 const IssueDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.currentIssue);
   const { comments } = data;
+  const amountOfComments = comments ? comments.length : null;
+  console.log(data);
 
   useEffect(() => {
     dispatch(fetchIssueByIdFromApi(id));
@@ -27,7 +29,8 @@ const IssueDetail = () => {
             <div>
               {/* TODO Make day counter since issue was created + Comments counter*/}
               <span>
-                #{data.author} opened this issue X days ago * X comments
+                #{data.author} opened this issue X days ago * {amountOfComments}{' '}
+                comments
               </span>
             </div>
           </TitleContainer>
